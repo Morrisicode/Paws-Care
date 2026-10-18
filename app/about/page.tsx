@@ -4,7 +4,6 @@ import Container from "@/components/Container";
 import { Sparkles } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import styles from "./about.module.css";
 
 export const metadata: Metadata = {
   title: "About Paws & Care | Paws & Care",
@@ -23,8 +22,7 @@ export default function AboutPage() {
     {
       id: 2,
       label: "Right nutrition",
-      copy:
-        "Choose food that suits your pet and follow feeding advice from a veterinarian.",
+      copy: "Choose food that suits your pet and follow feeding advice from a veterinarian.",
       image: "/nutrition-card.avif",
     },
     {
@@ -42,8 +40,7 @@ export default function AboutPage() {
     {
       id: 5,
       label: "Health support",
-      copy:
-        "Arrange regular veterinary checkups and ask for help when you notice a concern.",
+      copy: "Arrange regular veterinary checkups and ask for help when you notice a concern.",
       image: "/2.avif",
     },
   ];
@@ -146,19 +143,15 @@ export default function AboutPage() {
               </h2>
             </div>
 
-            <div
-              className={`${styles.stack} flex flex-col gap-5 px-2 sm:px-5 lg:px-10`}
-            >
+            <div className="relative isolate flex flex-col gap-5 overflow-visible px-2 sm:px-5 lg:px-10">
               {datas.map((data, index) => (
                 <div
                   key={data.id}
-                  className={`${styles.stackCard} sticky`}
+                  className="sticky top-[76px] self-stretch md:top-[96px]"
                   style={{ zIndex: 30 + index }}
                 >
                   <article className="grid overflow-hidden rounded-[1.75rem] border border-white/15 bg-[#123f37] text-[#fffaf2] shadow-[0_24px_70px_rgba(18,63,55,0.2)] md:grid-cols-[0.9fr_1.1fr]">
-                    <div
-                      className={`${styles.cardCopy} flex flex-col justify-center p-7 sm:p-10 lg:p-12`}
-                    >
+                    <div className="flex min-h-[232px] flex-col justify-center p-7 sm:p-10 lg:p-12">
                       <div className="mb-7 flex items-center gap-3">
                         <span className="flex size-9 items-center justify-center rounded-full bg-[#f47d61] text-xs font-bold text-white shadow-sm">
                           {String(data.id).padStart(2, "0")}
@@ -175,9 +168,7 @@ export default function AboutPage() {
                       </p>
                     </div>
 
-                    <div
-                      className={`${styles.cardMedia} relative overflow-hidden`}
-                    >
+                    <div className="relative min-h-[256px] overflow-hidden md:min-h-[420px]">
                       <Image
                         src={data.image}
                         alt={`${data.label} for a happy, healthy pet`}
