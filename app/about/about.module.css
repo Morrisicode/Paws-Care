@@ -1,10 +1,44 @@
+.stack {
+  position: relative;
+  isolation: isolate;
+}
+
 .stackCard {
   position: sticky;
   top: var(--stack-mobile-top);
+  align-self: stretch;
+  backface-visibility: hidden;
+}
+
+.cardCopy {
+  min-height: 14.5rem;
+}
+
+.cardMedia {
+  min-height: 16rem;
 }
 
 @media (min-width: 768px) {
   .stackCard {
     top: var(--stack-desktop-top);
+  }
+
+  .cardMedia {
+    min-height: 26.25rem;
+  }
+}
+
+@media (max-width: 767px) and (max-height: 640px) {
+  .stackCard {
+    top: var(--stack-compact-top);
+  }
+
+  .cardCopy {
+    min-height: 10rem;
+    padding-block: 1.25rem;
+  }
+
+  .cardMedia {
+    min-height: 11.5rem;
   }
 }

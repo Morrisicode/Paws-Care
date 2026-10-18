@@ -147,20 +147,25 @@ export default function AboutPage() {
               </h2>
             </div>
 
-            <div className="flex flex-col gap-5 px-2 sm:px-5 lg:px-10">
+            <div
+              className={`${styles.stack} flex flex-col gap-5 px-2 sm:px-5 lg:px-10`}
+            >
               {datas.map((data, index) => (
                 <article
                   key={data.id}
-                  className={`${styles.stackCard} grid overflow-hidden rounded-[1.75rem] border border-white/15 bg-[#123f37] text-[#fffaf2] shadow-[0_24px_70px_rgba(18,63,55,0.2)] md:grid-cols-[0.9fr_1.1fr]`}
+                  className={`${styles.stackCard} sticky grid overflow-hidden rounded-[1.75rem] border border-white/15 bg-[#123f37] text-[#fffaf2] shadow-[0_24px_70px_rgba(18,63,55,0.2)] md:grid-cols-[0.9fr_1.1fr]`}
                   style={
                     {
-                      "--stack-mobile-top": `${5.5 + index * 0.65}rem`,
-                      "--stack-desktop-top": `${6.5 + index * 0.85}rem`,
-                      zIndex: 20 + index,
+                      "--stack-mobile-top": `${92 + index * 10}px`,
+                      "--stack-compact-top": `${72 + index * 8}px`,
+                      "--stack-desktop-top": `${172 + index * 17}px`,
+                      zIndex: 30 + index,
                     } as CSSProperties
                   }
                 >
-                  <div className="flex min-h-[230px] flex-col justify-center p-7 sm:p-10 lg:p-12">
+                  <div
+                    className={`${styles.cardCopy} flex flex-col justify-center p-7 sm:p-10 lg:p-12`}
+                  >
                     <div className="mb-7 flex items-center gap-3">
                       <span className="flex size-9 items-center justify-center rounded-full bg-[#f47d61] text-xs font-bold text-white shadow-sm">
                         {String(data.id).padStart(2, "0")}
@@ -177,7 +182,9 @@ export default function AboutPage() {
                     </p>
                   </div>
 
-                  <div className="relative min-h-[260px] overflow-hidden md:min-h-[420px]">
+                  <div
+                    className={`${styles.cardMedia} relative overflow-hidden`}
+                  >
                     <Image
                       src={data.image}
                       alt={`${data.label} for a happy, healthy pet`}
