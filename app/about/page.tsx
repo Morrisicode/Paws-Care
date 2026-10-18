@@ -150,46 +150,48 @@ export default function AboutPage() {
               className={`${styles.stack} flex flex-col gap-5 px-2 sm:px-5 lg:px-10`}
             >
               {datas.map((data, index) => (
-                <article
+                <div
                   key={data.id}
-                  className={`${styles.stackCard} sticky grid overflow-hidden rounded-[1.75rem] border border-white/15 bg-[#123f37] text-[#fffaf2] shadow-[0_24px_70px_rgba(18,63,55,0.2)] md:grid-cols-[0.9fr_1.1fr]`}
+                  className={`${styles.stackCard} sticky`}
                   style={{ zIndex: 30 + index }}
                 >
-                  <div
-                    className={`${styles.cardCopy} flex flex-col justify-center p-7 sm:p-10 lg:p-12`}
-                  >
-                    <div className="mb-7 flex items-center gap-3">
-                      <span className="flex size-9 items-center justify-center rounded-full bg-[#f47d61] text-xs font-bold text-white shadow-sm">
-                        {String(data.id).padStart(2, "0")}
-                      </span>
-                      <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#a8d7c8]">
-                        Care principle
-                      </span>
-                    </div>
-                    <h3 className="max-w-[12ch] font-serif text-3xl font-bold leading-[1.02] tracking-[-0.03em] sm:text-4xl lg:text-5xl">
-                      {data.label}
-                    </h3>
-                    <p className="mt-5 max-w-[48ch] text-sm leading-7 text-[#e5f1ed] sm:text-base">
-                      {data.copy}
-                    </p>
-                  </div>
-
-                  <div
-                    className={`${styles.cardMedia} relative overflow-hidden`}
-                  >
-                    <Image
-                      src={data.image}
-                      alt={`${data.label} for a happy, healthy pet`}
-                      fill
-                      sizes="(min-width: 1024px) 540px, (min-width: 768px) 55vw, 100vw"
-                      className="object-cover transition-transform duration-500 motion-safe:hover:scale-[1.02]"
-                    />
+                  <article className="grid overflow-hidden rounded-[1.75rem] border border-white/15 bg-[#123f37] text-[#fffaf2] shadow-[0_24px_70px_rgba(18,63,55,0.2)] md:grid-cols-[0.9fr_1.1fr]">
                     <div
-                      aria-hidden="true"
-                      className="absolute inset-0 bg-gradient-to-t from-[#123f37]/20 via-transparent to-white/5 md:bg-gradient-to-r md:from-[#123f37]/20 md:to-transparent"
-                    />
-                  </div>
-                </article>
+                      className={`${styles.cardCopy} flex flex-col justify-center p-7 sm:p-10 lg:p-12`}
+                    >
+                      <div className="mb-7 flex items-center gap-3">
+                        <span className="flex size-9 items-center justify-center rounded-full bg-[#f47d61] text-xs font-bold text-white shadow-sm">
+                          {String(data.id).padStart(2, "0")}
+                        </span>
+                        <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#a8d7c8]">
+                          Care principle
+                        </span>
+                      </div>
+                      <h3 className="max-w-[12ch] font-serif text-3xl font-bold leading-[1.02] tracking-[-0.03em] sm:text-4xl lg:text-5xl">
+                        {data.label}
+                      </h3>
+                      <p className="mt-5 max-w-[48ch] text-sm leading-7 text-[#e5f1ed] sm:text-base">
+                        {data.copy}
+                      </p>
+                    </div>
+
+                    <div
+                      className={`${styles.cardMedia} relative overflow-hidden`}
+                    >
+                      <Image
+                        src={data.image}
+                        alt={`${data.label} for a happy, healthy pet`}
+                        fill
+                        sizes="(min-width: 1024px) 540px, (min-width: 768px) 55vw, 100vw"
+                        className="object-cover transition-transform duration-500 motion-safe:hover:scale-[1.02]"
+                      />
+                      <div
+                        aria-hidden="true"
+                        className="absolute inset-0 bg-gradient-to-t from-[#123f37]/20 via-transparent to-white/5 md:bg-gradient-to-r md:from-[#123f37]/20 md:to-transparent"
+                      />
+                    </div>
+                  </article>
+                </div>
               ))}
             </div>
           </section>

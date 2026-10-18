@@ -1,6 +1,7 @@
 .stack {
   position: relative;
   isolation: isolate;
+  overflow: visible;
 }
 
 .stackCard {
