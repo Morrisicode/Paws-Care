@@ -9,6 +9,8 @@ import {
   UsersRound,
 } from "lucide-react";
 import Container from "@/components/Container";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
 
 const stats = [
   { value: "10K+", label: "Happy pets", icon: PawPrint },
@@ -109,7 +111,7 @@ export default function Home() {
           />
         </Container>
 
-        <Container className="relative z-30 -mt-24 pb-20 lg:-mt-20 lg:pb-28">
+        <Container className="relative z-30 -mt-24 pb-6 sm:pb-8 lg:-mt-20 lg:pb-8">
           <div className="grid grid-cols-2 overflow-hidden rounded-[1.75rem] border border-[#164f44]/10 bg-white/90 p-2 shadow-[0_20px_55px_rgba(22,79,68,0.13)] backdrop-blur-xl lg:grid-cols-4 lg:p-3">
             {stats.map(({ value, label, icon: Icon }, index) => (
               <div
@@ -138,10 +140,21 @@ export default function Home() {
             ))}
           </div>
 
+          <div className="mx-auto mt-5 max-w-4xl   px-5 py-7 text-center sm:mt-12 sm:px-8 sm:py-9">
+            <h1 className="font-serif text-2xl font-bold tracking-[-0.025em] text-[#123f37] sm:text-3xl lg:text-4xl">
+              A happier day for every pet
+            </h1>
+            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#55736d] sm:text-base sm:leading-7">
+              Caring for a pet is a daily promise. You do not need to know
+              everything at once. Start with the basics, notice how your pet is
+              feeling, and ask a veterinarian when you are concerned.
+            </p>
+          </div>
+
           <section
             id="care-guide"
             aria-label="Pet care guide"
-            className="mx-auto max-w-6xl scroll-mt-28 pt-10 sm:pt-12 lg:pt-14"
+            className="mx-auto max-w-6xl scroll-mt-28 pt-8 sm:pt-10 lg:pt-12"
           >
             <div className="grid gap-4 md:grid-cols-3 lg:gap-5">
               {careCards.map((card, index) => (
@@ -189,8 +202,24 @@ export default function Home() {
               ))}
             </div>
           </section>
+
+          <div className="pt-5 mt-5">
+            <h1 className="text-2xl md:text-3xl font-bold text-[#123f37] text-center">
+              Have a pet-care question?
+            </h1>
+            <p className="text-sm text-center pt-5">
+              Send us a message. We are happy to point you toward helpful
+              general information.
+            </p>
+          </div>
+          <div className="flex items-center justify-center">
+            <Button className="text-sm  px-8 py-5 hover:bg-[#123f37] bg-[#058e75] mt-5  hover:scale-103 ease duration-150">
+              <Link href="/contact">Contact Us</Link>
+            </Button>
+          </div>
         </Container>
       </section>
+      <Footer />
     </main>
   );
 }
