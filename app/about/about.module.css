@@ -1,0 +1,10 @@
+.stackCard {
+  position: sticky;
+  top: var(--stack-mobile-top);
+}
+
+@media (min-width: 768px) {
+  .stackCard {
+    top: var(--stack-desktop-top);
+  }
+}

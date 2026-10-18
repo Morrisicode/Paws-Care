@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import Container from "@/components/Container";
 import { Sparkles } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import styles from "./about.module.css";
 
 export const metadata: Metadata = {
   title: "About Paws & Care | Paws & Care",
@@ -15,35 +17,40 @@ export default function AboutPage() {
   const datas = [
     {
       id: 1,
-      title: "Keep clean water available.",
+      label: "Fresh water",
+      copy: "Keep clean water available.",
       image: "/3.avif",
     },
     {
-      id: 5,
-      title:
+      id: 2,
+      label: "Right nutrition",
+      copy:
         "Choose food that suits your pet and follow feeding advice from a veterinarian.",
       image: "/nutrition-card.avif",
     },
     {
-      id: 2,
-      title: "Make time for safe exercise, play, rest, and gentle attention.",
+      id: 3,
+      label: "Daily movement",
+      copy: "Make time for safe exercise, play, rest, and gentle attention.",
       image: "/1.avif",
     },
     {
       id: 4,
-      title: "Keep your pet’s living area clean and free from hazards.",
+      label: "A safe home",
+      copy: "Keep your pet’s living area clean and free from hazards.",
       image: "/4.avif",
     },
     {
-      id: 3,
-      title:
+      id: 5,
+      label: "Health support",
+      copy:
         "Arrange regular veterinary checkups and ask for help when you notice a concern.",
       image: "/2.avif",
     },
   ];
   return (
-    <main className="flex-1 overflow-hidden bg-[#fbf7ef] text-[#123f37]">
-      <section className="relative isolate">
+    <main className="flex-1 bg-[#fbf7ef] text-[#123f37]">
+      <section className="relative isolate overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(255,255,255,0.9),transparent_35%),linear-gradient(110deg,#fbf7ef_0%,#fbf7ef_48%,#f1eadf_100%)]" />
 
         <div className="relative mx-auto grid min-h-[650px] w-full max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 sm:py-16 lg:min-h-[610px] lg:grid-cols-[46%_54%] lg:px-8 lg:py-20">
@@ -124,33 +131,69 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Caring Principles */}
-          <div className="py-5">
-            <h1 className=" text-center text-2xl lg:text-3xl underline pb-10 pt-5 font-bold">
-              Our simple care principles
-            </h1>
+          <section
+            aria-labelledby="care-principles-heading"
+            className="mx-auto max-w-6xl pb-28 pt-16 sm:pb-36 lg:pt-24"
+          >
+            <div className="mx-auto mb-10 max-w-2xl px-4 text-center sm:mb-14">
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#e85f47]">
+                Everyday pet care
+              </p>
+              <h2
+                id="care-principles-heading"
+                className="font-serif text-3xl font-bold tracking-[-0.03em] text-[#123f37] sm:text-4xl lg:text-5xl"
+              >
+                Our simple care principles
+              </h2>
+            </div>
 
-            <div className="">
-              <div className="px-10 mx-auto flex gap-5 flex-cols md:grid grid-cols-2">
-                {datas.map((data) => (
-                  <div
-                    key={data.id}
-                    className="rounded border-green-600 border flex flex-cols item-center justify-center md:grid grid-cols-2 mx-auto gap-5"
-                  >
-                    <h3 className="text-center text-lg py-3 px-3">
-                      {data.title}
+            <div className="flex flex-col gap-5 px-2 sm:px-5 lg:px-10">
+              {datas.map((data, index) => (
+                <article
+                  key={data.id}
+                  className={`${styles.stackCard} grid overflow-hidden rounded-[1.75rem] border border-white/15 bg-[#123f37] text-[#fffaf2] shadow-[0_24px_70px_rgba(18,63,55,0.2)] md:grid-cols-[0.9fr_1.1fr]`}
+                  style={
+                    {
+                      "--stack-mobile-top": `${5.5 + index * 0.65}rem`,
+                      "--stack-desktop-top": `${6.5 + index * 0.85}rem`,
+                      zIndex: 20 + index,
+                    } as CSSProperties
+                  }
+                >
+                  <div className="flex min-h-[230px] flex-col justify-center p-7 sm:p-10 lg:p-12">
+                    <div className="mb-7 flex items-center gap-3">
+                      <span className="flex size-9 items-center justify-center rounded-full bg-[#f47d61] text-xs font-bold text-white shadow-sm">
+                        {String(data.id).padStart(2, "0")}
+                      </span>
+                      <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#a8d7c8]">
+                        Care principle
+                      </span>
+                    </div>
+                    <h3 className="max-w-[12ch] font-serif text-3xl font-bold leading-[1.02] tracking-[-0.03em] sm:text-4xl lg:text-5xl">
+                      {data.label}
                     </h3>
-                    <img
+                    <p className="mt-5 max-w-[48ch] text-sm leading-7 text-[#e5f1ed] sm:text-base">
+                      {data.copy}
+                    </p>
+                  </div>
+
+                  <div className="relative min-h-[260px] overflow-hidden md:min-h-[420px]">
+                    <Image
                       src={data.image}
-                      alt="images"
-                      width={300}
-                      height={40}
+                      alt={`${data.label} for a happy, healthy pet`}
+                      fill
+                      sizes="(min-width: 1024px) 540px, (min-width: 768px) 55vw, 100vw"
+                      className="object-cover transition-transform duration-500 motion-safe:hover:scale-[1.02]"
+                    />
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-0 bg-gradient-to-t from-[#123f37]/20 via-transparent to-white/5 md:bg-gradient-to-r md:from-[#123f37]/20 md:to-transparent"
                     />
                   </div>
-                ))}
-              </div>
+                </article>
+              ))}
             </div>
-          </div>
+          </section>
         </div>
       </Container>
     </main>
