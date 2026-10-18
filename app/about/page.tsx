@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import type { CSSProperties } from "react";
 import Image from "next/image";
 import Container from "@/components/Container";
 import { Sparkles } from "lucide-react";
@@ -154,14 +153,7 @@ export default function AboutPage() {
                 <article
                   key={data.id}
                   className={`${styles.stackCard} sticky grid overflow-hidden rounded-[1.75rem] border border-white/15 bg-[#123f37] text-[#fffaf2] shadow-[0_24px_70px_rgba(18,63,55,0.2)] md:grid-cols-[0.9fr_1.1fr]`}
-                  style={
-                    {
-                      "--stack-mobile-top": `${92 + index * 10}px`,
-                      "--stack-compact-top": `${72 + index * 8}px`,
-                      "--stack-desktop-top": `${172 + index * 17}px`,
-                      zIndex: 30 + index,
-                    } as CSSProperties
-                  }
+                  style={{ zIndex: 30 + index }}
                 >
                   <div
                     className={`${styles.cardCopy} flex flex-col justify-center p-7 sm:p-10 lg:p-12`}

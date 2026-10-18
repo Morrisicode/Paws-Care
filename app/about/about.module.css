@@ -5,7 +5,7 @@
 
 .stackCard {
   position: sticky;
-  top: var(--stack-mobile-top);
+  top: 4.75rem;
   align-self: stretch;
   backface-visibility: hidden;
 }
@@ -20,7 +20,7 @@
 
 @media (min-width: 768px) {
   .stackCard {
-    top: var(--stack-desktop-top);
+    top: 6rem;
   }
 
   .cardMedia {
@@ -30,7 +30,7 @@
 
 @media (max-width: 767px) and (max-height: 640px) {
   .stackCard {
-    top: var(--stack-compact-top);
+    top: 4.25rem;
   }
 
   .cardCopy {
