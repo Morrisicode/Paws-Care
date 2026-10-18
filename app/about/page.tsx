@@ -12,6 +12,35 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const datas = [
+    {
+      id: 1,
+      title: "Keep clean water available.",
+      image: "/3.avif",
+    },
+    {
+      id: 5,
+      title:
+        "Choose food that suits your pet and follow feeding advice from a veterinarian.",
+      image: "/nutrition-card.avif",
+    },
+    {
+      id: 2,
+      title: "Make time for safe exercise, play, rest, and gentle attention.",
+      image: "/1.avif",
+    },
+    {
+      id: 4,
+      title: "Keep your pet’s living area clean and free from hazards.",
+      image: "/4.avif",
+    },
+    {
+      id: 3,
+      title:
+        "Arrange regular veterinary checkups and ask for help when you notice a concern.",
+      image: "/2.avif",
+    },
+  ];
   return (
     <main className="flex-1 overflow-hidden bg-[#fbf7ef] text-[#123f37]">
       <section className="relative isolate">
@@ -91,6 +120,34 @@ export default function AboutPage() {
                 <Button className="text-sm  px-8 py-5 hover:bg-[#123f37] bg-[#058e75] mt-5  hover:scale-103 ease duration-150">
                   <Link href="/contact">Contact Us</Link>
                 </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Caring Principles */}
+          <div className="py-5">
+            <h1 className=" text-center text-2xl lg:text-3xl underline pb-10 pt-5 font-bold">
+              Our simple care principles
+            </h1>
+
+            <div className="">
+              <div className="px-10 mx-auto flex gap-5 flex-cols md:grid grid-cols-2">
+                {datas.map((data) => (
+                  <div
+                    key={data.id}
+                    className="rounded border-green-600 border flex flex-cols item-center justify-center md:grid grid-cols-2 mx-auto gap-5"
+                  >
+                    <h3 className="text-center text-lg py-3 px-3">
+                      {data.title}
+                    </h3>
+                    <img
+                      src={data.image}
+                      alt="images"
+                      width={300}
+                      height={40}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
